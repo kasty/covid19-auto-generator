@@ -4,6 +4,7 @@ import './css/App.css';
 import React from 'react';
 import Header from './components/Header';
 import Form from './components/Form';
+import LegalMentions from './components/LegalMentions';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Form />
           </div>
         </div>
+        <LegalMentions />
     </div>
   );
 }
