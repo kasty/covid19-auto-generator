@@ -1,4 +1,4 @@
-import { configType } from './config/config';
+import { configType } from './config/types';
 
 const config: configType = {
   reasonsList: {

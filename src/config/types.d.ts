@@ -17,7 +17,7 @@ type ReasonListType = PartialRecord<ReasonsNameType, ReasonFieldsType>;
 
 type UsersType = Record<string, UserType>;
 
-type UserType = {
+export type UserType = {
   profile: {
     firstname: string;
     lastname: string;
@@ -27,9 +27,11 @@ type UserType = {
     zipcode: string;
     city: string;
     emoji?: string;
+    datesortie: string;
+    heuresortie: string;
   },
   settings: {
     choices: string[];
     defaultChoice: string;
   }
-}
+};

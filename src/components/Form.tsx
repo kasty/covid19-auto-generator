@@ -4,6 +4,7 @@ import ReasonSelector from './ReasonSelector';
 import { downloadBlob } from '../js/dom-utils';
 import { generatePdf } from '../js/pdf-util';
 import config from '../config';
+import { UserType } from '../config/types';
 import pdfBase from '../certificate.pdf';
 
 const Form = () => {
@@ -38,7 +39,7 @@ const Form = () => {
     }
     const [user, setUser] = React.useState<string>(getDefaultUser());
     const [reason, setReason] = React.useState<string>('');
-    const [userData, setUserData] = React.useState<any>({});
+    const [userData, setUserData] = React.useState<UserType>(null);
 
     useEffect(() => {
       // update user data
@@ -47,7 +48,7 @@ const Form = () => {
         setUserData(config.users[user as keyof typeof config.users]);
         setReason(userData.settings.defaultChoice);
       } else {
-        setUserData({});
+        setUserData(null);
         setReason('')
       }
     }, [user]);
