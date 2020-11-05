@@ -1,7 +1,7 @@
 {
   "name": "covid19-auto-generator",
   "version": "0.1.0",
-  "description": "A tool to generate a preconfigured authorization",
+  "description": "A tool to generate a preconfigured travel certificate in the COVID-19 context",
   "main": "src/js/main.js",
   "homepage": "https://kasty.github.io",
   "private": true,
