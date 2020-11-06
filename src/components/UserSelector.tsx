@@ -1,6 +1,4 @@
-import React, {
-  FC, 
-} from 'react';
+import React, { FC } from 'react';
 import config from '../config';
 
 interface UserSelectorProps {
@@ -12,9 +10,11 @@ const UserSelector: FC<UserSelectorProps> = ({
   currentUser = '',
   onChange,
 }: UserSelectorProps) => {
-    return (
-      <h2 className="mb-4">Je suis 
-      <select id="user" name="user" className="custom-select custom-select-lg" value={currentUser} onChange={onChange}>
+  return (
+    <h2 className="mb-4">Je suis
+      <select id="user" name="user"
+        className="custom-select custom-select-lg" value={currentUser}
+        onChange={onChange}>
         <option value="">...</option>
         {
           Object.keys(config.users).map((user, key) => {
@@ -24,9 +24,9 @@ const UserSelector: FC<UserSelectorProps> = ({
             );
           })
         }
-        </select>
-      </h2>
-    );
+      </select>
+    </h2>
+  );
 }
 
 export default UserSelector;

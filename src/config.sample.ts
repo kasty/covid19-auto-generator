@@ -4,40 +4,40 @@ const config: configType = {
   // all possible reasons
   reasonsList: {
     travail: {
-      title: "au boulot",
-      emoji: "🖥"
+      title: 'au boulot',
+      emoji: '🖥',
     },
     famille: {
       title: "m'occuper de la famille",
-      emoji: "💪🏼"
+      emoji: '💪🏼',
     },
     achats: {
-      title: "faire les courses",
-      emoji: "🛒"
+      title: 'faire les courses',
+      emoji: '🛒',
     },
     sport_animaux: {
       title: "prendre l'air",
-      emoji: " ☔️"
+      emoji: ' ☔️',
     },
     sante: {
-      title: "chez le doc (glups)",
-      emoji: "🤒"
+      title: 'chez le doc (glups)',
+      emoji: '🤒',
     },
     handicap: {
-      title: "me déplacer en situation de handicap",
-      emoji: "🦽"
+      title: 'me déplacer en situation de handicap',
+      emoji: '🦽',
     },
     convocation: {
-      title: "à une convocation",
-      emoji: "📄"
+      title: 'à une convocation',
+      emoji: '📄',
     },
     missions: {
       title: "participer à une mission d'intérêt général",
-      emoji: "🔧"
+      emoji: '🔧',
     },
     enfants: {
       title: "chercher les enfants à l'école",
-      emoji: "🧸"
+      emoji: '🧸',
     },
   },
   // you can add as many users as you want
@@ -52,7 +52,7 @@ const config: configType = {
         zipcode: '44000',
         city: 'Nantes',
         // only displayed in the select box
-        emoji: '🐼'
+        emoji: '🐼',
       },
       settings: {
         // limit the list of choices for this user
@@ -61,7 +61,7 @@ const config: configType = {
           'achats',
           'sport_animaux',
           'sante',
-          'handicap'
+          'handicap',
         ],
         // user's default choice selected (optional)
         defaultChoice: 'sport_animaux',
@@ -76,7 +76,7 @@ const config: configType = {
         address: '35 rue de l\'épée',
         zipcode: '44000',
         city: 'Nantes',
-        emoji: '🐙'
+        emoji: '🐙',
       },
       settings: {
         choices: [
@@ -85,13 +85,13 @@ const config: configType = {
           'achats',
           'sport_animaux',
           'sante',
-          'missions'
+          'missions',
         ],
         defaultChoice: 'travail',
       },
     },
   },
-  defaultUser: "janine"
+  defaultUser: 'janine',
 };
 
 export default config;

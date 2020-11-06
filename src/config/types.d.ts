@@ -11,7 +11,7 @@ type ReasonFieldsType = {
   title: string;
   emoji?: string;
 }
-type ReasonsNameType = "travail" | "famille" | "achats" | "sport_animaux" | "sante" | "handicap" | "convocation" | "missions" | "enfants";
+type ReasonsNameType = 'travail' | 'famille' | 'achats' | 'sport_animaux' | 'sante' | 'handicap' | 'convocation' | 'missions' | 'enfants';
 
 type ReasonListType = PartialRecord<ReasonsNameType, ReasonFieldsType>;
 

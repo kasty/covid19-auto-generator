@@ -3,40 +3,40 @@ import { configType } from './config/types';
 const config: configType = {
   reasonsList: {
     travail: {
-      title: "au boulot",
-      emoji: "🖥"
+      title: 'au boulot',
+      emoji: '🖥',
     },
     famille: {
       title: "m'occuper de la famille",
-      emoji: "💪🏼"
+      emoji: '💪🏼',
     },
     achats: {
-      title: "faire les courses",
-      emoji: "🛒"
+      title: 'faire les courses',
+      emoji: '🛒',
     },
     sport_animaux: {
       title: "prendre l'air",
-      emoji: " ☔️"
+      emoji: ' ☔️',
     },
     sante: {
-      title: "chez le doc (glups)",
-      emoji: "🤒"
+      title: 'chez le doc (glups)',
+      emoji: '🤒',
     },
     handicap: {
-      title: "me déplacer en situation de handicap",
-      emoji: "🦽"
+      title: 'me déplacer en situation de handicap',
+      emoji: '🦽',
     },
     convocation: {
-      title: "à une convocation",
-      emoji: "📄"
+      title: 'à une convocation',
+      emoji: '📄',
     },
     missions: {
       title: "participer à une mission d'intérêt général",
-      emoji: "🔧"
+      emoji: '🔧',
     },
     enfants: {
       title: "chercher les enfants à l'école",
-      emoji: "🧸"
+      emoji: '🧸',
     },
   },
   users: {
@@ -49,7 +49,7 @@ const config: configType = {
         address: '35 rue de l\'épée',
         zipcode: '44000',
         city: 'Nantes',
-        emoji: '🐼'
+        emoji: '🐼',
       },
       settings: {
         choices: [
@@ -57,7 +57,7 @@ const config: configType = {
           'achats',
           'sport_animaux',
           'sante',
-          'handicap'
+          'handicap',
         ],
         defaultChoice: 'sport_animaux',
       },
@@ -71,7 +71,7 @@ const config: configType = {
         address: '35 rue de l\'épée',
         zipcode: '44000',
         city: 'Nantes',
-        emoji: '🐙'
+        emoji: '🐙',
       },
       settings: {
         choices: [
@@ -80,13 +80,13 @@ const config: configType = {
           'achats',
           'sport_animaux',
           'sante',
-          'missions'
+          'missions',
         ],
         defaultChoice: 'travail',
       },
     },
   },
-  defaultUser: "janine"
+  defaultUser: 'janine',
 };
 
 export default config;

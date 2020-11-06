@@ -10,12 +10,12 @@ function App() {
   return (
     <div id="app" className="App container-md">
       <div className="mx-auto card" id="main">
-          <div className="card-body text-center">
-            <Header />
-            <Form />
-          </div>
+        <div className="card-body text-center">
+          <Header />
+          <Form />
         </div>
-        <LegalMentions />
+      </div>
+      <LegalMentions />
     </div>
   );
 }
