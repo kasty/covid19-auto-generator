@@ -27,8 +27,8 @@ export type UserType = {
     zipcode: string;
     city: string;
     emoji?: string;
-    datesortie: string;
-    heuresortie: string;
+    datesortie?: string;
+    heuresortie?: string;
   },
   settings: {
     choices: string[];
