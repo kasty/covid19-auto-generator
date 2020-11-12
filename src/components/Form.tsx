@@ -1,21 +1,13 @@
 import React, { useEffect } from 'react';
+import axios, { AxiosResponse } from 'axios';
 import UserSelector from './UserSelector';
 import ReasonSelector from './ReasonSelector';
 import { downloadBlob } from '../js/dom-utils';
 import { generatePdf } from '../js/pdf-util';
-import config from '../config';
-import { UserType } from '../config/types';
+import { UserType, UserConfigType } from '../config/types';
 import pdfBase from '../certificate.pdf';
 
 const Form = () => {
-  const getDefaultUser = () => (
-    document.location.search.replace('?p=', '')
-      || (
-        (config && config.defaultUser && config.users && config.users[config.defaultUser])
-          ? config.defaultUser
-          : ''
-      )
-  )
   const generate = async () => {
     if (userData && userData.profile) {
       const userProfile = userData.profile;
@@ -44,27 +36,61 @@ const Form = () => {
   const handleReasonSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     setReason(e.currentTarget.value);
   }
-  const [user, setUser] = React.useState<string>(getDefaultUser());
+  const [user, setUser] = React.useState<string>('');
+  const [error, setError] = React.useState<string | null>(null);
   const [reason, setReason] = React.useState<string>('');
   const [userData, setUserData] = React.useState<UserType | null>(null);
+  const [userConfig, setUserConfig] = React.useState<UserConfigType | null>(null);
 
   useEffect(() => {
-    // update user data
-    if(user !== '') {
-      const userData: UserType = config.users[user as keyof typeof config.users];
-      setUserData(config.users[user as keyof typeof config.users]);
-      if(userData && userData.settings && userData.settings.defaultChoice) {
-        setReason(userData.settings.defaultChoice);
+    const getDefaultUser = () => (
+      document.location.search.replace('?p=', '')
+        || (
+          (userConfig && userConfig.defaultUser && userConfig.users && userConfig.users[userConfig.defaultUser])
+            ? userConfig.defaultUser
+            : ''
+        )
+    )
+    if (userConfig) {
+      // update user data
+      if(user !== '') {
+        const userData: UserType = userConfig.users[user];
+        setUserData(userData);
+        if(userData && userData.settings && userData.settings.defaultChoice) {
+          setReason(userData.settings.defaultChoice);
+        } else {
+          setReason(userData.settings.choices[0]);
+        }
+      } else {
+        setUser(getDefaultUser());
       }
-    } else {
-      setUserData(null);
-      setReason('')
     }
-  }, [user]);
+  }, [userConfig, user]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // load users config
+      await axios.get('../users.json')
+        .then(function (response: AxiosResponse) {
+          setUserConfig(response.data);
+          setError(null);
+        })
+        .catch(function (error) {
+          setError('Une erreur s\'est produite dans le chargement des données');
+          console.error(error);
+        });
+    }
+    fetchData();
+  }, []);
 
   return (
     <form>
-      <UserSelector currentUser={user} onChange={handleUserSelect} />
+      { error ? <div className="alert alert-danger">{error}</div> : null}
+      <UserSelector
+        users={(userConfig && userConfig.users) ? userConfig.users : {}}
+        currentUser={user}
+        onChange={handleUserSelect}
+      />
       <ReasonSelector currentReason={reason} reasons={(userData && userData.settings && userData.settings.choices) ? userData.settings.choices : null}
         onChange={handleReasonSelect} />
       <button type="button" className="btn btn-info btn-lg btn-block"

@@ -1,5 +1,7 @@
-export type configType = {
+export type ConfigType = {
   reasonsList: ReasonListType;
+}
+export type UserConfigType = {
   defaultUser?: keyof UsersType;
   users: UsersType;
 }
@@ -15,7 +17,7 @@ type ReasonsNameType = 'travail' | 'famille' | 'achats' | 'sport_animaux' | 'san
 
 type ReasonListType = PartialRecord<ReasonsNameType, ReasonFieldsType>;
 
-type UsersType = Record<string, UserType>;
+export type UsersType = Record<string, UserType>;
 
 export type UserType = {
   profile: {

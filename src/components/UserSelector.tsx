@@ -1,13 +1,15 @@
 import React, { FC } from 'react';
-import config from '../config';
+import { UsersType } from '../config/types';
 
 interface UserSelectorProps {
   currentUser: string;
+  users: UsersType;
   onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const UserSelector: FC<UserSelectorProps> = ({
   currentUser = '',
+  users = {},
   onChange,
 }: UserSelectorProps) => {
   return (
@@ -17,10 +19,16 @@ const UserSelector: FC<UserSelectorProps> = ({
         onChange={onChange}>
         <option value="">...</option>
         {
-          Object.keys(config.users).map((user, key) => {
+          Object.keys(users).map((user, key) => {
             const upcaseUser = user.charAt(0).toUpperCase() + user.slice(1);
             return (
-              <option value={user}>{upcaseUser} {config.users[user].profile.emoji}</option>
+              <option key={user} value={user}>{upcaseUser}
+                {
+                  (users && users[user] && users[user].profile && users[user].profile.emoji)
+                    ? users[user].profile.emoji
+                    : null
+                }
+              </option>
             );
           })
         }

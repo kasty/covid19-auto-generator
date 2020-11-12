@@ -1,6 +1,6 @@
-import { configType } from './config/types';
+import { ConfigType } from './config/types';
 
-const config: configType = {
+const config: ConfigType = {
   reasonsList: {
     travail: {
       title: 'au boulot',
@@ -39,54 +39,6 @@ const config: configType = {
       emoji: '🧸',
     },
   },
-  users: {
-    robert: {
-      profile: {
-        firstname: 'Robert',
-        lastname: 'Tudor',
-        birthday: '24/06/1978',
-        placeofbirth: 'Nantes',
-        address: '35 rue de l\'épée',
-        zipcode: '44000',
-        city: 'Nantes',
-        emoji: '🐼',
-      },
-      settings: {
-        choices: [
-          'famille',
-          'achats',
-          'sport_animaux',
-          'sante',
-          'handicap',
-        ],
-        defaultChoice: 'sport_animaux',
-      },
-    },
-    janine: {
-      profile: {
-        firstname: 'Janine',
-        lastname: 'Tudor',
-        birthday: '01/05/1975',
-        placeofbirth: 'Biarritz',
-        address: '35 rue de l\'épée',
-        zipcode: '44000',
-        city: 'Nantes',
-        emoji: '🐙',
-      },
-      settings: {
-        choices: [
-          'travail',
-          'famille',
-          'achats',
-          'sport_animaux',
-          'sante',
-          'missions',
-        ],
-        defaultChoice: 'travail',
-      },
-    },
-  },
-  defaultUser: 'janine',
 };
 
 export default config;
