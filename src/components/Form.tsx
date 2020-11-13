@@ -14,7 +14,7 @@ const Form = () => {
       // set current date and hour
       const now = new Date();
       userProfile.datesortie = `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`;
-      userProfile.heuresortie = `${now.getHours()}:${now.getMinutes()}`;
+      userProfile.heuresortie = `${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
       // generate pdf
       const pdfBlob = await generatePdf(userProfile, reason, pdfBase);
       const creationDate = now.toLocaleDateString('fr-CA');
