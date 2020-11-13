@@ -5,120 +5,78 @@ Once configured, it allows you to generate an authorization in two clicks.
 
 > Please note, you use this generator at your own risk, I decline all responsibility in the event of an error resulting in a penalty
 
-## Remaining todos
-- [ ] Improve this documentation
-- [ ] Load config from an external file (no build needed)
-- [ ] Improve TypeScript types
-
-## Démo 
+## Demo 
 ![demo gif](https://kasty.github.io/demo-covid-auto-gen.gif "Demo covid19 auto generator")
 
 Online demo on https://kasty.github.io/
 
 ## Usage
-
+The application is already built. You can deploy the `public` folder on your webserver after having configured the user's data.
 * Clone the repository
-* Install dependencies
+* Edit the config file at `public/users.json`
+Example :
+```
+{
+  "users": {
+    "robert": {
+      "profile": {
+        "firstname": "Robert",
+        "lastname": "Tudor",
+        "birthday": "24/06/1978",
+        "placeofbirth": "Nantes",
+        "address": "35 rue de l\"épée",
+        "zipcode": "44000",
+        "city": "Nantes",
+        "emoji": "🐼"
+      },
+      "settings": {
+        "choices": [
+          "famille",
+          "achats",
+          "sport_animaux",
+          "sante",
+          "handicap"
+        ],
+        "defaultChoice": "achats"
+      }
+    },
+    "janine": {
+      "profile": {
+        "firstname": "Janine",
+        "lastname": "Tudor",
+        "birthday": "01/05/1975",
+        "placeofbirth": "Biarritz",
+        "address": "35 rue de l\"épée",
+        "zipcode": "44000",
+        "city": "Nantes",
+        "emoji": "🐙"
+      },
+      "settings": {
+        "choices": [
+          "travail",
+          "famille",
+          "achats",
+          "sport_animaux",
+          "sante",
+          "missions"
+        ],
+        "defaultChoice": "travail"
+      }
+    }
+  },
+  "defaultUser": "robert"
+}
+```
+* Deploy the content of the `build` folder on your webserver
+* It is advisable to add protection to the file so as not to expose your personal data. For example, you can add an .htaccess file
+
+## Contribute
+* Clone the repository
+* Install the dependencies :
 ```
 npm install
 ```
-* Edit the config file at `src/config.ts`
-Example :
-```
-import { configType } from './config/config';
-
-const config: configType = {
-  reasonsList: {
-    travail: {
-      title: "au boulot",
-      emoji: "🖥"
-    },
-    famille: {
-      title: "m'occuper de la famille",
-      emoji: "💪🏼"
-    },
-    achats: {
-      title: "faire les courses",
-      emoji: "🛒"
-    },
-    sport_animaux: {
-      title: "prendre l'air",
-      emoji: " ☔️"
-    },
-    sante: {
-      title: "chez le doc (glups)",
-      emoji: "🤒"
-    },
-    handicap: {
-      title: "me déplacer en situation de handicap",
-      emoji: "🦽"
-    },
-    convocation: {
-      title: "à une convocation",
-      emoji: "📄"
-    },
-    missions: {
-      title: "participer à une mission d'intérêt général",
-      emoji: "🔧"
-    },
-    enfants: {
-      title: "chercher les enfants à l'école",
-      emoji: "🧸"
-    },
-  },
-  users: {
-    robert: {
-      profile: {
-        firstname: 'Robert',
-        lastname: 'Tudor',
-        birthday: '24/06/1978',
-        placeofbirth: 'Nantes',
-        address: '35 rue de l\'épée',
-        zipcode: '44000',
-        city: 'Nantes',
-        emoji: '🐼'
-      },
-      settings: {
-        choices: [
-          'famille',
-          'achats',
-          'sport_animaux',
-          'sante',
-          'handicap'
-        ],
-        defaultChoice: 'sport_animaux',
-      },
-    },
-    janine: {
-      profile: {
-        firstname: 'Janine',
-        lastname: 'Tudor',
-        birthday: '01/05/1975',
-        placeofbirth: 'Biarritz',
-        address: '35 rue de l\'épée',
-        zipcode: '44000',
-        city: 'Nantes',
-        emoji: '🐙'
-      },
-      settings: {
-        choices: [
-          'travail',
-          'famille',
-          'achats',
-          'sport_animaux',
-          'sante',
-          'missions'
-        ],
-        defaultChoice: 'travail',
-      },
-    },
-  },
-  defaultUser: "janine"
-};
-
-export default config;
-```
-* To test your app you can run it locally with
+* Start the local node server :
 ```
 npm start
 ```
