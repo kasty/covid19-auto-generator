@@ -70,7 +70,7 @@ const Form = () => {
   useEffect(() => {
     const fetchData = async () => {
       // load users config
-      await axios.get(`${document.location.pathname}/users.json`)
+      await axios.get(`${document.location.origin}${document.location.pathname}/users.json`)
         .then(function (response: AxiosResponse) {
           setUserConfig(response.data);
           setError(null);
