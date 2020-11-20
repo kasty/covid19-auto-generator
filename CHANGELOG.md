@@ -1,3 +1,8 @@
+# 1.1.1
+## November 20. 2020
+### Fix
+* Load data file depending on current location (handle subfolder)
+
 # 1.1.0
 ## November 13. 2020
 ### Fix
