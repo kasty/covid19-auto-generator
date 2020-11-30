@@ -7,8 +7,8 @@ const config: ConfigType = {
       emoji: '🖥',
     },
     famille: {
-      title: "m'occuper de la famille",
-      emoji: '💪🏼',
+      title: 'chez la nounou',
+      emoji: '👶🏼',
     },
     achats: {
       title: 'faire les courses',
